@@ -1,0 +1,14 @@
+# Monorepo: app lives in Frontend/. Publish path is from repo root.
+[build]
+  command = "npm ci --prefix Frontend && npm run build --prefix Frontend"
+  publish = "Frontend/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  VITE_API_URL = "https://nhmbackend-production.up.railway.app"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
